@@ -180,4 +180,9 @@ public class Review {
 
     return total;
   }
+  public static int starRating(String fileName){
+    double sentiment = totalSentiment(fileName);
+
+
+  }
 }

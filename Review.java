@@ -179,9 +179,11 @@ public class Review {
     total += sentimentVal(removePunctuation(customerReview));
 
     return total;
-    }
-  
+  }
+  public static int starRating(String fileName){
+    double sentiment = totalSentiment(fileName);
 
 
-    
+  }
+
 }

@@ -160,6 +160,25 @@ public class Review {
       return randomPositiveAdj();
     } else {
       return randomNegativeAdj();
-    }
+
+      
   }
+}
+
+  public static double totalSentiment(String fileName){
+
+    String customerReview = textToString(fileName);
+
+    double total = 0;
+    while(customerReview.length() >0 && customerReview.indexOf(" ")!= -1){
+      int space = customerReview.indexOf(" ");
+      String word = customerReview.substring(0, space);
+      customerReview = customerReview.substring( space +1);
+      total += sentimentVal(removePunctuation(word));
+    }
+    total += sentimentVal(removePunctuation(customerReview));
+
+    return total;
+    }
+  
 }

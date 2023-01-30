@@ -3,7 +3,7 @@ public class Main {
         // System.out.println(Review.sentimentVal("terrible"));
 
         System.out.println(Review.totalSentiment("simplereviw.txt"));
-        System.out.println(Review.starRating("simplereviw.txt"));
+        System.out.println(Review.fakeReview("simplereviw.txt"));
 
     }
     

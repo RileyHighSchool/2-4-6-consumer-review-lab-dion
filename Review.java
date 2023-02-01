@@ -202,17 +202,26 @@ public class Review {
     }
   }
 
-public static String fakeReview(String fileName){
+public static String fakeReview(String fileName, String pos ){
   String customerReview = textToString(fileName);
   String newReviewString ="";
-while(customerReview.length() >0 && customerReview.indexOf("*")!= -1){
-  int star = customerReview.indexOf("*", 0);
-  int space = customerReview.indexOf(" ", star);
+  while(customerReview.length() >0 && customerReview.indexOf("*")!= -1){
+    int star = customerReview.indexOf("*", 0);
+    int space = customerReview.indexOf(" ", star);
 
-  newReviewString += customerReview.substring(0,star);
-  newReviewString += randomAdjective()+" ";
-  customerReview = customerReview.substring( space +1);
+    newReviewString += customerReview.substring(0,star);
+
+    if (pos.equals("positive")){
+      newReviewString += randomPositiveAdj()+ " ";
+    }
+else if(pos.equals("negative")){
+  newReviewString += randomNegativeAdj()+ " ";
+} else {
+    newReviewString += randomAdjective()+ " ";
 }
+
+    customerReview = customerReview.substring( space +1);
+  }
   newReviewString += customerReview;
   return newReviewString;
 }

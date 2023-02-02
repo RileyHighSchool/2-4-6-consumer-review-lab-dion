@@ -225,4 +225,28 @@ else if(pos.equals("negative")){
   newReviewString += customerReview;
   return newReviewString;
 }
+
+public static String randomReviewString (String fileName){
+  String oldString = textToString(fileName);
+  String newString ="";
+  int count = 0;
+
+  while (oldString.length() >0 && oldString.indexOf(" ")!= -1){
+    
+    int space = oldString.indexOf(" ");
+    String word = oldString.substring(0, space);
+
+    if ( count % 2 == 0){
+      newString += randomAdjective() + " ";      
+    }
+    else {
+      newString += word;
+      
+    }
+    oldString = oldString.substring( space +1);
+    count ++ ;
+    
+}
+return newString;
+}
 }
